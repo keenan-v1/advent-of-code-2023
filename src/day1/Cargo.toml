@@ -1,11 +1,9 @@
 [package]
-name = "AdventOfCode"
+name = "day1"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-reqwest = "0.11.22"
-day1 = { path = "src/day1" }
-tokio = { version = "1.35.0", features = ["rt", "rt-multi-thread", "macros"] }
+regex = "1.10.2"
