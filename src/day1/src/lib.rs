@@ -2,10 +2,12 @@ extern crate regex;
 
 use regex::Regex;
 
-extern crate util;
-
 pub fn day1() {
-    let lines = util::load_input("inputs/day1.txt");
+    let lines = include_str!("../inputs/day1.txt")
+        .trim_matches('\n')
+        .split('\n')
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
     let result = day1_part1(&lines);
     println!("Part 1: The result is {}", result);
     let result = day1_part2(&lines);
@@ -85,15 +87,22 @@ mod tests {
 
     #[test]
     fn part1() {
-        let lines = util::load_input("../../inputs/examples/day1_part1.txt");
+        let lines = include_str!("../inputs/examples/day1_part1.txt")
+            .trim_matches('\n')
+            .split('\n')
+            .map(|s| s.to_string())
+            .collect::<Vec<String>>();
         let result = day1_part1(&lines);
         assert_eq!(result, 142);
     }
 
     #[test]
     fn part2() {
-        let lines =
-            util::load_input("../../inputs/examples/day1_part2.txt");
+        let lines = include_str!("../inputs/examples/day1_part2.txt")
+            .trim_matches('\n')
+            .split('\n')
+            .map(|s| s.to_string())
+            .collect::<Vec<String>>();
         let result = day1_part2(&lines);
         assert_eq!(result, 281 + 18);
     }

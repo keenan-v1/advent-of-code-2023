@@ -1,10 +1,12 @@
-extern crate util;
-
 use std::collections::HashMap;
 use regex::Regex;
 
 pub fn day2() {
-    let lines = util::load_input("inputs/day2.txt");
+    let lines = include_str!("../inputs/day2.txt")
+        .trim_matches('\n')
+        .split('\n')
+        .map(|s| s.to_string())
+        .collect::<Vec<String>>();
     let result = day2_part1(&lines);
     println!("Part 1: The result is {}", result);
     let result = day2_part2(&lines);
@@ -20,7 +22,8 @@ fn day2_part1(lines: &Vec<String>) -> usize {
     let mut result = 0;
     for line in lines {
         let game_regex = Regex::new(r"\d+").unwrap();
-        let game = game_regex.find_iter(line).map(|x| x.as_str().parse::<usize>().unwrap()).next().unwrap();
+        let game = game_regex.find_iter(line)
+            .map(|x| x.as_str().parse::<usize>().unwrap()).next().unwrap();
         let parts: Vec<&str> = line.split(" ").skip(2).collect();
         let draws = parts.join(" ");
         let mut possible = true;
@@ -81,14 +84,22 @@ mod tests {
 
     #[test]
     fn part1() {
-        let lines = util::load_input("../../inputs/examples/day2_part1.txt");
+        let lines = include_str!("../inputs/examples/day2_part1.txt")
+            .trim_matches('\n')
+            .split('\n')
+            .map(|s| s.to_string())
+            .collect::<Vec<String>>();
         let result = day2_part1(&lines);
         assert_eq!(result, 8);
     }
 
     #[test]
     fn part2() {
-        let lines = util::load_input("../../inputs/examples/day2_part2.txt");
+        let lines = include_str!("../inputs/examples/day2_part2.txt")
+            .trim_matches('\n')
+            .split('\n')
+            .map(|s| s.to_string())
+            .collect::<Vec<String>>();
         let result = day2_part2(&lines);
         assert_eq!(result, 2286);
     }
