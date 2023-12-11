@@ -6,7 +6,7 @@ __BE WARNED__: Spoilers ahead!
 
 ## Layout
 The solutions are organized in crates, one for each day. Each crate contains a `lib.rs` file with the solution.
-The inputs are stored in the `inputs` directory under the root of the repository, named by day.
+The inputs are stored in the `inputs` directory under each crate.
 
 ## Running
 To run the solutions, you need to have [Rust](https://www.rust-lang.org/) installed.
