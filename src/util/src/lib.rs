@@ -14,7 +14,7 @@ mod tests {
 
     #[test]
     fn test_load_input() {
-        let input = load_input(String::from("../../inputs/day1.txt"));
+        let input = load_input("../../inputs/day1.txt");
         assert_eq!(input.len(), 1000)
     }
 }
