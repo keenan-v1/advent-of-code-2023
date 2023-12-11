@@ -22,6 +22,7 @@ name = "advent_of_code"
 version = "0.1.0"
 dependencies = [
  "day1",
+ "day2",
  "reqwest",
  "tokio",
 ]
@@ -122,6 +123,15 @@ name = "day1"
 version = "0.1.0"
 dependencies = [
  "regex",
+ "util",
+]
+
+[[package]]
+name = "day2"
+version = "0.1.0"
+dependencies = [
+ "regex",
+ "util",
 ]
 
 [[package]]
@@ -937,6 +947,10 @@ dependencies = [
  "idna",
  "percent-encoding",
 ]
+
+[[package]]
+name = "util"
+version = "0.1.0"
 
 [[package]]
 name = "vcpkg"

@@ -2,16 +2,17 @@ extern crate regex;
 
 use regex::Regex;
 
+extern crate util;
+
 pub fn day1() {
-    let input = std::fs::read_to_string("inputs/day1.txt").unwrap();
-    let lines = input.trim_matches('\n').split('\n').collect::<Vec<&str>>();
+    let lines = util::load_input("inputs/day1.txt");
     let result = day1_part1(&lines);
     println!("Part 1: The result is {}", result);
     let result = day1_part2(&lines);
     println!("Part 2: The result is {}", result);
 }
 
-fn day1_part1(lines: &Vec<&str>) -> usize {
+fn day1_part1(lines: &Vec<String>) -> usize {
     let mut result = 0;
     for line in lines {
         let numbers = Regex::new(r"\d").unwrap();
@@ -27,7 +28,7 @@ fn day1_part1(lines: &Vec<&str>) -> usize {
     return result;
 }
 
-fn day1_part2(lines: &Vec<&str>) -> usize {
+fn day1_part2(lines: &Vec<String>) -> usize {
     let mut result = 0;
     let word_to_num = [
         ("one", "1"),
@@ -84,17 +85,15 @@ mod tests {
 
     #[test]
     fn part1() {
-        let input = String::from("\n1abc2\npqr3stu8vwx\na1b2c3d4e5f\ntreb7uchet\n");
-        let lines = input.trim_matches('\n').split('\n').collect::<Vec<&str>>();
+        let lines = util::load_input("../../inputs/examples/day1_part1.txt");
         let result = day1_part1(&lines);
         assert_eq!(result, 142);
     }
 
     #[test]
     fn part2() {
-        let input = String::from("two1nine\neightwothree\nabcone2threexyz\nxtwone3four\
-        \n4nineeightseven2\nzoneight234\n7pqrstsixteen\noneight2nineight");
-        let lines = input.trim_matches('\n').split('\n').collect::<Vec<&str>>();
+        let lines =
+            util::load_input("../../inputs/examples/day1_part2.txt");
         let result = day1_part2(&lines);
         assert_eq!(result, 281 + 18);
     }

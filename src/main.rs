@@ -1,6 +1,7 @@
 use std::env;
 
 extern crate day1;
+extern crate day2;
 
 #[tokio::main]
 async fn main() {
@@ -9,6 +10,7 @@ async fn main() {
     println!("Running day {}", day);
     match day {
         1 => day1::day1(),
+        2 => day2::day2(),
         _ => println!("Invalid day"),
     }
 }
